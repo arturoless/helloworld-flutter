@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         //
         // Try running your application with "flutter run". You'll see the
         // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
+        // changing the primarySwatch below to Colors.blue and then invoke
         // "hot reload" (press "r" in the console where you ran "flutter run",
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
@@ -26,7 +26,65 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'hello world!'),
+      home: Scaffold(
+        appBar: AppBar(title: Text('LESS')),
+        body: Center(
+          child: Text('Líderez mundiales en adelgazamiento.',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 40.0,
+            ),
+          ) 
+        ),
+        floatingActionButton: FloatingActionButton(
+          elevation: 10.0,
+          child: Icon(Icons.add),
+          onPressed: (){
+
+          },
+        ),
+        drawer: Drawer(
+          child:ListView(
+            children: <Widget>[
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                ),
+                child: Text('LESS',style: TextStyle(
+                    color: Colors.blue, fontSize: 24,
+                  ),
+                ),
+              ),
+              ListTile(
+                title: Text('Item 1'), leading: Icon(Icons.people),
+              ),
+              ListTile(
+                title: Text('Item 2'), leading: Icon(Icons.mail),
+              )
+            ],
+          )
+        ), 
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: 0,
+          fixedColor: Colors.blue,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              title: Text('Home'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              title: Text('Search'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle),
+              title: Text('Profile'),
+            ),
+          ],
+          onTap: (int indexOfItem){
+          },
+        ),
+      ),
     );
   }
 }
