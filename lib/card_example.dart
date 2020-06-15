@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'image_example.dart';
+
 
 class ExampleCard extends StatelessWidget{
   @override
@@ -26,8 +28,10 @@ class ExampleCard extends StatelessWidget{
               children: <Widget>[
                 FlatButton(
                   textColor: Colors.redAccent[400],
-                  child: const Text('RENT'),
-                  onPressed: () {/* ... */},
+                  child: const Text('VIEW POSTER'),
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> ImageExample()));
+                  },
                 ),
                 FlatButton(
                   textColor: Colors.redAccent[400],
@@ -39,7 +43,12 @@ class ExampleCard extends StatelessWidget{
           ],
         ),
       );
-    return content;
+    return  Scaffold(
+      appBar: AppBar(
+        title: Text('List of movies'),
+      ),
+      body: content
+    );
   }
 
 }

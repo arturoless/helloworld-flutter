@@ -11,8 +11,6 @@
 
 import 'package:flutter/material.dart';
 
-import 'example_card.dart';
-import 'image_example.dart';
 import 'login_example.dart';
 
 void main() => runApp(MyApp());
@@ -25,64 +23,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: _title,
-      home: MyStatefulWidget(),
-    );
-  }
-}
-
-class MyStatefulWidget extends StatefulWidget {
-  MyStatefulWidget({Key key}) : super(key: key);
-
-  @override
-  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
-}
-
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  int _selectedIndex = 0;
-  static List<Widget> _widgetOptions = <Widget>[
-    Scaffold(body: 
-      new ExampleCard()
-    ),
-    Scaffold(body: 
-      new ImageExample()
-    ),
-    new LoginExample(),
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-
-      ),
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.mood),
-            title: Text('Card'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.image),
-            title: Text('Image'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.people),
-            title: Text('Login'),
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.red[700],
-        onTap: _onItemTapped,
+      home: LoginExample(),
+      theme: ThemeData(
+        primaryColor: Colors.red[700],
+        accentColor: Colors.redAccent[400],
       ),
     );
   }
 }
+
+

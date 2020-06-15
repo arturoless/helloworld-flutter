@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'navigation_view.dart';
+
 class LoginExample extends StatelessWidget{
   @override
   Widget build(BuildContext context){
-   
-
     final content = Card(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -28,7 +28,8 @@ class LoginExample extends StatelessWidget{
                   decoration: const InputDecoration(
                     hintText: 'Enter your password',
                     icon: Icon(Icons.lock)
-                  )
+                  ),
+                  obscureText:true,
                 )
                ]
 
@@ -38,8 +39,11 @@ class LoginExample extends StatelessWidget{
             ButtonBar(
               children: <Widget>[
                 FlatButton(
+                  textColor: Colors.redAccent[400],
                   child: const Text('LOG IN'),
-                  onPressed: () {/* ... */},
+                  onPressed: () {
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>MyStatefulWidget()));
+                  },
                 ),
               ],
             ),
