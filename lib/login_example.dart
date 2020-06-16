@@ -2,7 +2,26 @@ import 'package:flutter/material.dart';
 
 import 'navigation_view.dart';
 
-class LoginExample extends StatelessWidget{
+import './services/rest_service.dart';
+
+class LoginExample extends StatefulWidget{
+  @override
+  _MyCustomFormState createState() => _MyCustomFormState();
+}
+
+class _MyCustomFormState extends State<LoginExample> {
+
+
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context){
     final content = Card(
@@ -22,13 +41,15 @@ class LoginExample extends StatelessWidget{
                   decoration: const InputDecoration(
                     hintText: 'Enter your email',
                     icon: Icon(Icons.email)
-                  )
+                  ),
+                  controller: emailController,
                 ),
                 TextFormField(
                   decoration: const InputDecoration(
                     hintText: 'Enter your password',
                     icon: Icon(Icons.lock)
                   ),
+                  controller: passwordController,
                   obscureText:true,
                 )
                ]
@@ -41,8 +62,15 @@ class LoginExample extends StatelessWidget{
                 FlatButton(
                   textColor: Colors.redAccent[400],
                   child: const Text('LOG IN'),
-                  onPressed: () {
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>MyStatefulWidget()));
+                  onPressed: ()  {
+                    setState(() {
+                      login(emailController.text,passwordController.text).then((value) => {
+                        if (value!=null){
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> MyStatefulWidget()))
+                        }
+                      }
+                      );
+                    });
                   },
                 ),
               ],
