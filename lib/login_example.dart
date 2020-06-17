@@ -10,7 +10,7 @@ class LoginExample extends StatefulWidget{
 }
 
 class _MyCustomFormState extends State<LoginExample> {
-
+  final snackBar = SnackBar(content: Text('Datos incorrectos.'));
 
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -65,8 +65,11 @@ class _MyCustomFormState extends State<LoginExample> {
                   onPressed: ()  {
                     setState(() {
                       login(emailController.text,passwordController.text).then((value) => {
-                        if (value!=null){
+                        if (value.token!=null){
                           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> MyStatefulWidget()))
+                        }
+                        else{
+                          Scaffold.of(context).showSnackBar(snackBar)
                         }
                       }
                       );
@@ -88,9 +91,7 @@ class _MyCustomFormState extends State<LoginExample> {
           child:content)
       );
 
-    return Scaffold(
-      body: container
-    );
+    return container;
   }
   
 }

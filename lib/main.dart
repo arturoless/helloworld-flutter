@@ -23,7 +23,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: _title,
-      home: LoginExample(),
+      home: Scaffold(
+        body:LoginExample()),
       theme: ThemeData(
         primaryColor: Colors.red[700],
         accentColor: Colors.redAccent[400],
