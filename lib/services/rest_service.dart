@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 
 Future<LoginUser> login(username,password) async {
   final response =
-      await http.post('https://3f6f644fe60d.ngrok.io/api/v1/login',
+      await http.post('https://less-django-rest.herokuapp.com/api/v1/login',
       headers: <String, String>{
     'Content-Type': 'application/json; charset=UTF-8',
     },
