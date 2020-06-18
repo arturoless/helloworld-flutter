@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: _title,
       home: Scaffold(
+        resizeToAvoidBottomPadding: false,
         body:LoginExample()),
       theme: ThemeData(
         primaryColor: Colors.red[700],
