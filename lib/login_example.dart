@@ -99,7 +99,6 @@ class _MyCustomFormState extends State<LoginExample> {
                   constraints: const BoxConstraints(minWidth: double.infinity),
                   child:
                     OutlineButton(
-                      shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
                       borderSide: BorderSide(color: Colors.redAccent[400]),
                       textColor: Colors.redAccent[400],
                       child: const Text('LOG IN'),
@@ -122,7 +121,6 @@ class _MyCustomFormState extends State<LoginExample> {
                     constraints: const BoxConstraints(minWidth: double.infinity),
                     child:  
                     RaisedButton(
-                      shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
                       color: Colors.redAccent[400],
                       textColor: Colors.white,
                       child: const Text('REGISTER'),
